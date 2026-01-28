@@ -128,16 +128,6 @@ public class UI {
 
         g2.setColor(new Color(60, 30, 10));
         g2.setFont(font_title.deriveFont(38f));
-        g2.drawString("GUIA DO CAVALEIRO", getCenteredX("GUIA DO CAVALEIRO"), y + 100);
-
-        g2.setFont(font_menu.deriveFont(22f));
-        g2.drawString("● MOVIMENTAÇÃO: W, A, S, D ou MOUSE", x + 130, y + 180);
-        g2.drawString("● COMBATE: [ ENTER ] para atacar / [ L ] atira", x + 130, y + 270);
-
-        // LINHA ADICIONADA CONFORME SOLICITADO
-        g2.drawString("● Opção: ESC -> Voltar a pagina anterior", x + 130, y + 310);
-
-        g2.drawString("● OBJETIVO: Chave -> Porta -> Princesa", x + 130, y + 360);
     }
 
     public void drawHUD() {
