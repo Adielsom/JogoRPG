@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
-    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, spacePressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, lPressed;
     GamePanel gp;
 
     public KeyHandler(GamePanel gp) { this.gp = gp; }
@@ -15,7 +15,7 @@ public class KeyHandler implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
 
-        // CONTROLES DO MENU/TELAS
+        // CONTROLES DE MENU
         if (gp.gameState == gp.titleState) {
             if (code == KeyEvent.VK_W) { gp.ui.commandNum--; if (gp.ui.commandNum < 0) gp.ui.commandNum = 3; }
             if (code == KeyEvent.VK_S) { gp.ui.commandNum++; if (gp.ui.commandNum > 3) gp.ui.commandNum = 0; }
@@ -30,19 +30,16 @@ public class KeyHandler implements KeyListener {
             if (code == KeyEvent.VK_ENTER) gp.retry();
             if (code == KeyEvent.VK_ESCAPE) gp.gameState = gp.titleState;
         }
-        else if (gp.gameState == gp.musicSelectState || gp.gameState == gp.helpState || gp.gameState == gp.mapState) {
-            if (code == KeyEvent.VK_ESCAPE) gp.gameState = gp.titleState;
-        }
-        // CONTROLES DURANTE O JOGO (PLAY STATE)
         else if (gp.gameState == gp.playState) {
             if (code == KeyEvent.VK_W) upPressed = true;
             if (code == KeyEvent.VK_S) downPressed = true;
             if (code == KeyEvent.VK_A) leftPressed = true;
             if (code == KeyEvent.VK_D) rightPressed = true;
             if (code == KeyEvent.VK_ENTER) enterPressed = true;
-            if (code == KeyEvent.VK_SPACE) spacePressed = true; // ATIVA TIRO
+            if (code == KeyEvent.VK_L) lPressed = true; // MUDADO PARA 'L'
             if (code == KeyEvent.VK_ESCAPE) gp.gameState = gp.titleState;
         }
+        else if (code == KeyEvent.VK_ESCAPE) gp.gameState = gp.titleState;
     }
 
     @Override
@@ -53,6 +50,6 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_A) leftPressed = false;
         if (code == KeyEvent.VK_D) rightPressed = false;
         if (code == KeyEvent.VK_ENTER) enterPressed = false;
-        if (code == KeyEvent.VK_SPACE) spacePressed = false; // DESATIVA TIRO
+        if (code == KeyEvent.VK_L) lPressed = false;
     }
 }

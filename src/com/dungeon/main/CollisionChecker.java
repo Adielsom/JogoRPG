@@ -64,12 +64,27 @@ public class CollisionChecker {
         else ((Entity)t).collisionOn = true;
     }
 
+    // CONCERTO AQUI: checkObject agora é preditivo
     public int checkObject(GamePanel gp, boolean player) {
         int index = 999;
         for (int i = 0; i < gp.obj.length; i++) {
             if (gp.obj[i] != null) {
-                Rectangle pArea = new Rectangle(gp.playerX + gp.playerSolidArea.x, gp.playerY + gp.playerSolidArea.y, gp.playerSolidArea.width, gp.playerSolidArea.height);
+
+                // Posição atual da área sólida do jogador
+                int pX = gp.playerX + gp.playerSolidArea.x;
+                int pY = gp.playerY + gp.playerSolidArea.y;
+
+                // PREVISÃO: Verifica se colidirá no próximo passo da direção escolhida
+                switch(gp.direction) {
+                    case "up": pY -= gp.playerSpeed; break;
+                    case "down": pY += gp.playerSpeed; break;
+                    case "left": pX -= gp.playerSpeed; break;
+                    case "right": pX += gp.playerSpeed; break;
+                }
+
+                Rectangle pArea = new Rectangle(pX, pY, gp.playerSolidArea.width, gp.playerSolidArea.height);
                 Rectangle oArea = new Rectangle(gp.obj[i].worldX, gp.obj[i].worldY, gp.tileSize, gp.tileSize);
+
                 if (pArea.intersects(oArea)) {
                     if (gp.obj[i].collision) gp.collisionOn = true;
                     if (player) index = i;
@@ -79,7 +94,6 @@ public class CollisionChecker {
         return index;
     }
 
-    // NOVO: Detecta se um projétil atingiu um monstro
     public int checkEntity(Entity entity, Entity[] target) {
         int index = 999;
         for(int i = 0; i < target.length; i++) {
