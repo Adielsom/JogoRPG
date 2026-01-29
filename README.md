@@ -1,17 +1,17 @@
 
-* **Alunos: ADIELSON DE OLIVEIRA SANTOS E RAFAEL
-* **Materia: PROGRAMAÇÃO ORIENTADA A OBJETO
+* Alunos: ADIELSON DE OLIVEIRA SANTOS E RAFAEL
+* Materia: PROGRAMAÇÃO ORIENTADA A OBJETO
 * 2° MÓDULO DE ADS
 
 
-**DUNGEON SURVIVOR Survivor**
+**DUNGEON SURVIVOR**
 
 
 **Dungeon Survivor** é um jogo de aventura e ação 2D estilo Top-Down (RPG de Masmorra), desenvolvido inteiramente em **Java** puro, utilizando a biblioteca **Swing** e **AWT**. O jogador assume o papel de um valente cavaleiro que deve atravessar labirintos perigosos, enfrentar monstros clássicos e derrotar o temível Dragão Rei.
 
 ---
 
-## 🎯 Objetivo do Jogo
+## Objetivo do Jogo
 O objetivo principal é sobreviver a três níveis distintos de dificuldade crescente:
 1. **Nível 1 (Floresta Sombria):** Coletar chaves e desviar de Slimes básicos para abrir o portal inicial.
 2. **Nível 2 (Catacumbas):** Enfrentar um exército de esqueletos arqueiros com IA de perseguição e ataques à distância.
@@ -44,7 +44,7 @@ O objetivo principal é sobreviver a três níveis distintos de dificuldade cres
 
 ---
 
-🛠️ Tecnologias Utilizadas
+ Tecnologias Utilizadas
 
 **Linguagem:** Java (JDK 25 ou superior sugerido).
 **Gráficos:** Java Swing & AWT (Renderização via `paintComponent`). 
