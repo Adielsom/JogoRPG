@@ -39,7 +39,6 @@ O objetivo principal é sobreviver a três níveis distintos de dificuldade cres
 | **W, A, S, D** ou **Setas** | Movimentação do Cavaleiro |
 | **Enter** | Ataque com Espada |
 | **L** | Lançar Projétil (Fireball) |
-| **P** | Pausar o Jogo |
 | **Esc** | Voltar ao Menu / Sair |
 
 ---
