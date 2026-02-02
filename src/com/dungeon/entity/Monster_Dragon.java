@@ -11,7 +11,7 @@ public class Monster_Dragon extends Entity {
 
     public Monster_Dragon(GamePanel gp) {
         super(gp);
-        this.gp = gp; // Garantindo referência
+        this.gp = gp; 
         name = "Dragon";
         speed = 2;
         maxLife = 60;
@@ -22,15 +22,14 @@ public class Monster_Dragon extends Entity {
     }
 
     public void getImage() {
-        // Carregamento seguro: se o arquivo não existir na pasta, o setup retorna null
+        
         down1 = setup("/monster/dragon_down1.png");
         down2 = setup("/monster/dragon_down2.png");
         up1 = setup("/monster/dragon_up1.png");
         left1 = setup("/monster/dragon_left1.png");
         right1 = setup("/monster/dragon_right1.png");
 
-        // TRATAMENTO DE ERRO: Como up2, left2 e right2 não existem na sua pasta,
-        // usamos a imagem 1 como reserva para o jogo não travar
+        
         up2 = setup("/monster/dragon_up2.png");
         if(up2 == null) up2 = up1;
 
@@ -41,7 +40,7 @@ public class Monster_Dragon extends Entity {
         if(right2 == null) right2 = right1;
     }
 
-    // MÉTODO AUXILIAR: Impede o erro 'input == null!'
+    
     public BufferedImage setup(String imagePath) {
         try {
             java.io.InputStream is = getClass().getResourceAsStream(imagePath);
@@ -54,7 +53,7 @@ public class Monster_Dragon extends Entity {
 
     @Override
     public void update() {
-        // SUA LÓGICA DE MOVIMENTAÇÃO (Mantida intacta)
+        
         int diffX = gp.playerX - x;
         int diffY = gp.playerY - y;
 
@@ -66,7 +65,7 @@ public class Monster_Dragon extends Entity {
             if (diffY > 30) y += speed; else if (diffY < -30) y -= speed;
         }
 
-        // LIMITES DA ARENA (Mantida intacta)
+        
         if(x < gp.tileSize) x = gp.tileSize;
         if(x > gp.screenWidth - (gp.tileSize * 3)) x = gp.screenWidth - (gp.tileSize * 3);
         if(y < gp.tileSize) y = gp.tileSize;
@@ -78,7 +77,7 @@ public class Monster_Dragon extends Entity {
             spriteCounter = 0;
         }
 
-        // ATAQUE EM LEQUE (Mantida intacta)
+        
         shotCounter++;
         if(shotCounter > 45) {
             fireTripleShot(direction);
@@ -105,7 +104,7 @@ public class Monster_Dragon extends Entity {
     public void draw(Graphics2D g2) {
         BufferedImage img = null;
 
-        // O dragão agora seleciona a imagem correta para sempre olhar para o cavaleiro
+        
         switch(direction) {
             case "up": img = (spriteNum == 1) ? up1 : up2; break;
             case "down": img = (spriteNum == 1) ? down1 : down2; break;
