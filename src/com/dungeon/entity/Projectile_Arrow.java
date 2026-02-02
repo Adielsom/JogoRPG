@@ -17,7 +17,7 @@ public class Projectile_Arrow extends Projectile {
         try {
             down1 = ImageIO.read(getClass().getResourceAsStream("/monster/arrow.png"));
         } catch (Exception e) {
-            // Este é o erro que aparece no seu console!
+            
             System.out.println("Erro ao carregar imagem da flecha! Verifique res/monster/arrow.png");
         }
     }
