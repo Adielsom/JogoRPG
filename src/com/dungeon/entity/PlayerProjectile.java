@@ -15,7 +15,7 @@ public class PlayerProjectile extends Projectile {
 
     public void getImage() {
         try {
-            // Certifique-se de que o nome do arquivo aqui é fireball.png ou similar
+            
             down1 = ImageIO.read(getClass().getResourceAsStream("/player/fireball.png"));
         } catch (Exception e) {
             System.out.println("Erro ao carregar imagem da BOLA DE FOGO!");
