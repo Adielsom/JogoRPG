@@ -151,21 +151,17 @@ public class GamePanel extends JPanel implements Runnable {
             else if (keyH.leftPressed) direction = "left";
             else if (keyH.rightPressed) direction = "right";
 
-            // 1. Resetamos a colisão ANTES de checar a porta
+            
             collisionOn = false;
 
-            // 2. Checamos se o bloco da frente é sólido
             cChecker.checkTile(this);
 
-            // 3. Checamos se há um objeto (porta) no caminho
             int objIdx = cChecker.checkObject(this, true);
 
-            // 4. Se houver objeto, processamos a colisão/interação aqui
             pickUpObject(objIdx);
 
             checkMonsterCollision();
 
-            // 5. Só movemos se a colisão na direção atual for falsa
             if (!collisionOn) {
                 if (direction.equals("up")) playerY -= playerSpeed;
                 if (direction.equals("down")) playerY += playerSpeed;
