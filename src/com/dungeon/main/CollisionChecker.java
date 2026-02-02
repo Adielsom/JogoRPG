@@ -64,7 +64,7 @@ public class CollisionChecker {
         else ((Entity)t).collisionOn = true;
     }
 
-    // CONCERTO AQUI: checkObject agora é preditivo
+    
     public int checkObject(GamePanel gp, boolean player) {
         int index = 999;
         for (int i = 0; i < gp.obj.length; i++) {
